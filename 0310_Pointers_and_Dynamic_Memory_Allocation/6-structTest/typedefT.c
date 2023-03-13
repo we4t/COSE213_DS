@@ -10,6 +10,9 @@ typedef struct{
 } sDEX;
 
 int main(int argc, char *argv[]) {
-    /*write your code here*/ 	
-    return 0;
+	sDEX s = {{10, "13"},{10, "13"},{10, "13"},{10, "13"},{10, "13"},{10, "13"},{10, "13"},{10, "13"},{10, "13"},{10, "13"} };
+    
+	
+	
+	return 0;
 }
