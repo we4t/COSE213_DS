@@ -1,0 +1,22 @@
+object : set of triples <row, column, value>
+
+Sparse_Matrix Create(maxRow, maxCol) ::= 생성자
+	return a Sparse_Matrix hold up to
+	max_items = maxRow * maxCol
+	// triples[max_items]로 생성
+
+Sparse_Matrix Transpose(a) ::= 전치행렬
+	return the matrix produced by interchanging
+	the row and column value of every triples
+
+Sparse_Matrix Add(a, b) ::= 덧셈
+	if dimensions of a, b are the same
+		return the matrix a+b
+	else
+		return error
+
+Sparse_Matrix Multiply(a, b) ::= 곱셈
+	if a.colnum == b.rownum
+		return a*b
+	else
+		return error
