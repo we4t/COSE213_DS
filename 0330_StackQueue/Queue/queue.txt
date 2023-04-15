@@ -1,0 +1,11 @@
+front는 큐에서 존재하는 원소 앞을 가르킴. (원소를 안 가르킴.)
+rear(back)은 큐에서 가장 뒤에 있는 원소를 가르킴. (원소를 가르킴)
+capacity(size) : N
+
+isFull : return (rear == N - 1)
+isEmpty : return (front == rear)
+
+연산 : addQ, deleteQ
+addQ를 할 때엔 isFull() (Overflow 방지)
+deleteQ를 할 때엔 isEmpty() (Underflow 방지)
+

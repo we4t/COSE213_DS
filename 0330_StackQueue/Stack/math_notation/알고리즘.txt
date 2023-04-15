@@ -1,0 +1,42 @@
+1. 문자열 입력받고, 좌에서 우로 하나씩 읽음.
+2. 읽은 문자가
+	- 피연산자 : 출력함.
+	- 왼쪽 괄호 : push
+	- 오른쪽 괄호 : 짝 나올 때 까지 pop 하고, 
+	- 연산자는 pop 하고 출력함.
+	- 연산자이면, 스택의 top 과 자신의 우선순위를 비교해서
+	- isp < icp이면 push, isp >= icp 이면 
+	  while(isp >= icp) pop/출력, push 연산자
+
+isp : in stack precedence
+icp : incoming precedence
+
+enum : 
+	lparen, rparen, plus, minus, times, divide, mod, eos, 
+isp	0 		19		12	  12	 13     13      13   0   
+icp 20      19      12    12     13     13      13   0
+
+특이한 점은 lparen은 lsp는 낮고, icp는 높다.
+왜 그럴까?
+우선순위가 높은 것이 stack에서 먼저 pop되고 연산된다.
+
+연산자가 스택에서 나오는 경우는 isp >= icp인 경우에만.
+(는 항상 push되므로, 
+icp를 0으로 놓은 이유는 스택에 들어있는 것들을 pop 하지 않기 위해.
+isp를 0으로 놓은 이유는 스택에 들어갔을 때 무조건 나오게 하기 위해.
+
+chat gpt 왈:
+In this algorithm, operators are placed onto a stack based on their precedence 
+relative to the other operators in the expression. 
+The "in-stack precedence" (isp) is the precedence of the operator 
+when it is already on the stack, while the "incoming precedence" (icp) 
+is the precedence of the operator when it is first encountered in the expression.
+
+In the case of the left parenthesis "(" symbol, its isp is typically set to 0, 
+which means that it has the lowest precedence and will always be pushed onto the stack 
+without regard for the operators already on the stack. 
+Its icp, on the other hand, is set to a higher value, such as 20, 
+which means that it will always be pushed onto the stack when encountered, 
+but will cause operators on the stack to be pushed to the output 
+until a matching right parenthesis ")" is encountered.
+always properly balanced and evaluated in the correct order in an expression.

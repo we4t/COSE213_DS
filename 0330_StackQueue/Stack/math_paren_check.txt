@@ -1,0 +1,44 @@
+핵심 아이디어는
+왼쪽 괄호 (, [, { 는 스택에 push
+오른쪽 괄호 ), ], }는 스택에서 pop
+
+1. 왼쪽 괄호이면 스택에 괄호를 넣는다.
+2. 오른쪽 괄호이면 스택에서 pop한다. pop 실행 안 되면 에러.
+2-1. pop한 괄호와 방금 읽은 오른쪽 괄호가 쌍이 안 맞으면 에러.
+3. 모든 괄호를 읽은 뒤 스택이 empty이면 정상수식.
+3-1. 모든 괄호를 처리한 후 스택이 empty 아니면 에러.
+
+pseudo code :
+
+int checkBracketMatching( char expression[] ){
+	int result;
+	int charIndex = -1;
+	while( charIndex < strlen(expression) - 1 && result != -1){
+		charIndex++;
+		char c = expression[charIndex]
+		switch(c){
+			case '(':
+			case '{':
+			case '[':
+				s.push(c);
+				break;
+			case ')':
+			case '}':
+			case ']':
+				if(s.empty()){
+					result = -1;
+				}
+				else{
+					char checkChar = s.pop();
+					if( !isPaired(c, checkChar) ){
+						result = -1;
+					}
+				}
+				break;
+		}
+	}
+	if (!s.empty()){
+		result = -1;
+	}
+	return result;
+}
