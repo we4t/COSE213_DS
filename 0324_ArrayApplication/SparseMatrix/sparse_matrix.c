@@ -143,8 +143,64 @@ void mmult(term a[], term b[], term d[]) {
             rowBegin = i;
             row = a[i].row;
         }
-		d[0].row = rowsA;
-		d[0].col = colsB;
-		d[0].value = totalD;
+        d[0].row = rowsA;
+        d[0].col = colsB;
+        d[0].value = totalD;
     }
+}
+
+void mmult(term a[], term b[], term d[]) {
+    int i, j, column;
+    int rowsA = a[0].row;
+    int colsA = a[0].col;
+    int colsB = b[0].col;
+    int totalA = a[0].value;
+    int totalB = b[0].value;
+    int totalD = 0;
+    int rowBegin = 1, row, sum = 0;
+    terms newb[MAX_TERMS];
+    if (colsA != b[0].row) {
+        printf("연산불가");
+    }
+    fastTranspose(b, newB);
+    a[totalA + 1].row = rowsA;
+    newb[totalB + 1].row = colsB;
+    newb[totalB + 1].col = 0;
+    newb[totalB + 1].value = 0;
+    row = a[1].row;
+    for (i = 1; i <= totalA;) {
+        column = newB[1].row;
+        for (j = 1; j <= totalB + 1l;) {
+            if (a[i].row != row) {
+                storesum(d, &totalD, row, column, &sum);
+                i = rowBegin;
+                for (; newB[j].row == column; j++)
+                    ;
+                column = newB[j].row;
+            }
+			else if(newB[j].row != column){
+				storesum(d, &totalD, row, column &sum);
+				i = rowBegin;
+				column = newB[j].row;
+			}
+			else{
+				switch(compare(a[i].col, newB[j].col)){
+					case -1:
+						i++;
+						break;
+					case 0:
+						sum += a[i++].value*newB[j++.value];
+						break;
+					case 1:
+						j++;
+				}
+			}
+        }
+		for(; a[i].row == row; i++);
+		rowBegin = i;
+		row = a[i].row;
+    }
+	d[0].row = rowsA;
+	d[0].col = colsB;
+	d[0].value = totalD;
 }

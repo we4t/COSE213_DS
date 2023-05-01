@@ -46,34 +46,30 @@ int main() {
         scanf("%d %d", i, j);
     }
 
-    for (i = 0; i < n; i++) {
-        if (out[i]) {
-            printf("\n New Class : %5d", i);
-            out[i] = FALSE;
-            x = seq[i];
-            top = NULL;
+    for(i = 0; i < n; i++){
+		if(out[i]){
+			printf("\n new class : %5d", i);
+			out[i] = FALSE;
+			x = seq[i];
+			top = NULL;
 
-            for (;;) {
-                while (x) {
-                    // x는 순회하는 포인터.
-                    // 첫 시작은 seq[i]
-                    j = x->data;
-                    if (out[j]) {
-                        // j 출력 안 했을 때
-                        printf("%5d", j);
-                        out[j] = FALSE;
-                        y = x->link;
-                        x->link = top;
-                        top = x;
-                        x = y;
-                    } else
-                        x = x->link;
-                }
-                if (!top)
-                    break;
+			for(;;){
+				while(x){
+					j = x->data;
+					if(out[j]){
+						printf("%5d", j);
+						out[j] = FALSE;
+						y = x->link;
+						x->link = top;
+						top = x;
+						x = y;
+					}
+					else x = x -> link;
+				}
+				if(!top) break;
 				x = seq[top->data];
 				top = top->link;
-            }
-        }
-    }
+			}
+		}
+	}
 }
