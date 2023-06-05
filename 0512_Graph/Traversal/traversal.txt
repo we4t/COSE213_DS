@@ -1,0 +1,49 @@
+dfs : graph traversal in preorder
+bfs : graph traversal in level-order
+
+dfs in function
+dfs(vertex v){
+	s.push(v);
+	print(v);
+	for (every_incident_vertices) {
+		dfs(incident_vertices)
+	}
+	s.pop(v);
+	if(s.empty()) exit();
+	else return;
+}
+한글로 : 
+1. 노드 v 정함.
+2. v 출력, stack에 push
+3. 인접한 노드 중 미방문 노드에 대해 탐색 시작
+4. 더 이상 방문할 노드가 없으면 스택 top을 기준으로 2부터 다시 시작.
+
+S :
+P : 0 1 3 7 4 5 2 6
+Print 된 순서대로 이은 것이 spanning tree
+// 직접 시뮬레이션 해보기
+
+------------------------------------------------
+BFS 한글 : 
+1. 한 노드 v를 선택함.
+2. 정점 v를 추력하고, 큐에 저장함.
+3. 큐의 맨 앞 노드 w를 빼내어
+	w와 연결된 노드 중 아직 방문하지 않은 노드를 찾아
+	2부터 반복함.
+4. 큐가 공백이면 종료함.
+
+bfs function : 
+bfs(node v){
+	queue q;
+	visited[v] = true;
+	q.push(v);
+	while(!q.empty()){
+		u = q.top();
+		q.pop();
+		for( w = u의 인접 노드들 ){
+			if(!visited[w]){
+				q.push(w);
+			}
+		}
+	}
+}
