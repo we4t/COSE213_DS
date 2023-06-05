@@ -1,0 +1,16 @@
+무방향 그래프의 연결 여부 : 
+dfs(0) 혹은 bfs(0) 후 미방문 정점 확인.
+
+방문 안 된 정점에서 다시 bfs 진행 : connected components
+구함.
+
+function : 
+void connectd(void){
+	int i;
+	for(i = 0; i < MAX_VERTICES; i++){
+		if(!visited[i]){
+			dfs(i);
+			printf("\n");
+		}
+	}
+}

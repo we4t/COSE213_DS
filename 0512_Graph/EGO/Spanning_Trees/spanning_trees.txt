@@ -1,0 +1,9 @@
+신장 트리 : 그래프의 모든 정점을 포함하고
+최소의 간선들로 연결된 임의의 트리
+
+구하는 방법 : dfs, bfs
+
+spanning tree 특징
+1. nontree-edge 추가하면 cycle 발생
+2. spanning tree g : G의 최소 부분그래프
+최소 부분그래프 : V(g) == V(G), E(g) = n - 1
