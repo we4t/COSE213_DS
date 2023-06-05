@@ -1,0 +1,54 @@
+그래프 : Vertices, Edges 로 구성
+G(V, E)
+
+그래프 Vertex 사이 엣지가 방향이 있으면 방향그래프, 
+방향 없으면 무방향그래프
+간선 : <V0, V1> 으로 표현 ( == V0에서 V1으로 가는 엣지)
+
+Complete(완전) 그래프 : 
+Vertex 사이에 생길 수 있는 모든 edge가 있는 그래프
+방향 완전그래프 : n(n-1)
+무방향 완전그래프 : n(n-1) / 2
+
+Adjacent : 인접 (엣지로 연결된 두 버텍스)
+Incident : 부속 (버텍스 간 연결된 엣지)
+
+서브그래프 : V' (= V, E' (= E (부분집합)
+path : 버텍스 간 이동하는 경로 위의 버텍스들
+v0, v1, i, j, k, ... , v2
+length of path : 경로 위에 존재하는 엣지의 수
+
+simple path : 정점이 모두 다른 경로
+cycle : 처음과 끝을 제외한 모든 버텍스가 simple path
+
+strongly connected : 그래프의 서로 다른 정점 쌍에 대해
+u->v, v->u 로 가는 directed path가 항상 존재할 때
+ == 모든 vertex 사이에 양방향 경로가 무조건 존재하는 그래프
+
+vertex u, v 가 connected : u와 v의 경로가 있음 (무방향그래프)
+그래프가 connected : 모든 버텍스 사이에 경로가 항상 존재.
+(무방향그래프)
+
+Undirected Graph에서
+connected Component ( 결합 요소 ) : 
+maximal connected subgraph.
+ == subgraph 중 connected 가 최대인 그래프
+disjoint 그래프면 connected component 자체가
+여러 개일 수 있음.
+
+directed Graph에서
+strongly connected component : 
+강한 결합 요소, maximal strongly connected subgraph
+버텍스 하나도 strongly connected component임
+
+무방향그래프에서 degree : 인접한 edge 수
+방향그래프에서 in-degree : 정점으로 들어오는 간선 수
+방향그래프에서 out-degree : 정점에서 나가는 간선 수
+# of edge = (sum of degrees) / 2
+
+그래프의 간선에 가중치가 존재할 수 있다.
+
+그래프의 표현 : 
+1) adjacency Matrix
+2) adjacency Lists
+3) adjacency Multilists

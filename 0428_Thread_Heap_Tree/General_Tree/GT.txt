@@ -1,0 +1,16 @@
+자식 수에 제한이 없는 트리
+삽입 방법 : 
+1) FIFO
+First in First out
+end of a sibling list에 삽입
+
+2) LIFO
+Last in First out
+beginning of the sibling list에 삽입
+
+3) Key-sequenced Insertion
+키 크기를 기준으로 
+앞에서부터 비교해서
+BST처럼 삽입
+
+4) leaf 면 삭제 가능, 아니면 삭제 불가.
