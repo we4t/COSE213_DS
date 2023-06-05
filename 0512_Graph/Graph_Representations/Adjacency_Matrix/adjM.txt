@@ -1,0 +1,14 @@
+G(V, E) with n vertices
+-> n by n array 에서
+adj_mat[i][j] : i->j로 가는 edge 있으면 1, 없으면 0
+무방향 그래프는 adjM이 항상 대칭
+
+시간 복잡도 : O(n^2)
+공간 복잡도 : S(n^2)
+
+무방향 그래프에서 i의 차수 : sum (adjmat[i][j])
+방향 그래프에서
+in_d(j) = sum(A[i][j])
+out_d(i) = sum(A[i][j])
+
+가중치이면 연결되어있을 때 가중치 적음.
