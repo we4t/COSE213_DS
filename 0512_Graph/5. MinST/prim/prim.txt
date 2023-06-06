@@ -1,0 +1,16 @@
+T = {};
+TV = {0};
+// T : 간선 집합, TV : 정점 집합.
+while(T.size() < n - 1 ){
+	pick least cost edge 
+	s.t. u in TV, v not in TV
+	-> 트리 형태를 유지한 채 최소의 간선을 선택.
+	edge 없으면 끝, 
+	TV.push(v)
+	T.push((u, v));
+}
+
+// 최저 비용 간선을 구해서 트리에 계속 추가.
+// 사이클 형성하지 않도록 간선 잘 선택.
+picking에 n, while에 n
+-> O(n^2)
