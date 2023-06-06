@@ -1,0 +1,45 @@
+간선은 수행해야 할 작업, 정점은 이벤트의 완료로 나타냄.
+작업 수행 시간은 간선에 적혀있음.
+indegree가 0인 것 부터 작업이 가능.
+
+작업이 병렬적으로 수행이 가능할 때,
+ 프로젝트 완료에 걸리는 시간은?
+
+프로젝트 완료에 걸리는 시간 : 임계 경로 (critical path)
+시작 정점에서 종료 정점까지의 최장 경로.
+프로젝트 완료에 필요한 최소 시간.
+
+the earliest time : 
+작업이 시작하기 위한 이벤트까지 걸리는 임계 경로.
+이벤트가 되어야 시작할 수 있으니까.
+
+the latest time :
+프로젝트 기간을 지연시키지 않고
+최대한 늦장부렸을 때 실행할 수 있는 시간.
+임계 경로에 있는 작업은 the latest time이랑 
+the earliest time이 동일함.
+임계도 : l(i) - e(i) (i는 작업.)
+
+작업 말고 이벤트에도 똑같이 적용 가능.
+the Earliest Event time : ee[k] 
+the Latest Event time : le[j]
+
+이벤트 k, j 가 있고
+i = <k, j>일 때
+e[i] = ee[k]
+l[i] = le[l] - a[i] // a[i] : 작업 i에 걸리는 시간.
+
+AOE 네트워크의 계산 : foward, backward
+forward에서 ee, backward에서 le 구함.
+1) forward
+초기 조건 : ee[0] = 0; 
+ee[j] = max{ee[i] + <i, j> } (i는 j의 직속 선행자)
+// 진출간선 그래프를 기준으로 topsort를 해서
+// 처리.
+
+2) backward
+초기 조건 : le[n-1] = ee[n-1];
+le[j] = min{le[i] - <j, i>의 시간} (i는 j의 직속 후속자)
+
+// 진입간선 그래프를 기준으로 topsort를 해서
+// 처리.
