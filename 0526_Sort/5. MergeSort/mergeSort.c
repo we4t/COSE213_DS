@@ -72,6 +72,7 @@ void mergeSort(element init[], int n) {
     // init, merged 순서 바꾸는 이유는
     // init에 다 저장하기 위해서
 }
+// listMerge, rMerge는 몰라도 됨.
 
 int listMerge(element a[], int link[], int start1, int start2) {
     int last1, last2, lastResult = 0;

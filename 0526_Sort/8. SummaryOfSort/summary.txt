@@ -1,0 +1,6 @@
+n < 20 : insertion sort
+n >= 20 && n < 45 : quickSort
+n >= 45 : mergeSort
+
+hybrid method:
+merge + quick, merge + insertion
