@@ -1,0 +1,7 @@
+Optimal BST
+
+서치 트리여도 균형이 더 맞을 수록 좋다.
+skewed binary tree 같이 
+depth가 쓸데없이 큰 트리는 별로.
+
+Optimal한 서치 트리 : AVL, RB 트리
